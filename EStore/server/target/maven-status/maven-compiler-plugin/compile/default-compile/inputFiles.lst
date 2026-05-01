@@ -35,6 +35,7 @@
 /Users/a2109164/Projects/dogFood/EStore/server/src/main/java/com/estore/service/CategoryService.java
 /Users/a2109164/Projects/dogFood/EStore/server/src/main/java/com/estore/common/PageResult.java
 /Users/a2109164/Projects/dogFood/EStore/server/src/main/java/com/estore/service/OrderService.java
+/Users/a2109164/Projects/dogFood/EStore/server/src/main/java/com/estore/config/DataInitializer.java
 /Users/a2109164/Projects/dogFood/EStore/server/src/main/java/com/estore/interceptor/UserAuthInterceptor.java
 /Users/a2109164/Projects/dogFood/EStore/server/src/main/java/com/estore/repository/UserAddressRepository.java
 /Users/a2109164/Projects/dogFood/EStore/server/src/main/java/com/estore/entity/Product.java

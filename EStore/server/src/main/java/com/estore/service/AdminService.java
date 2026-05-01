@@ -42,8 +42,14 @@ public class AdminService {
         
         Map<String, Object> result = new HashMap<>();
         result.put("token", token);
-        result.put("admin", admin);
-        result.remove("password");
+        
+        Map<String, Object> adminMap = new HashMap<>();
+        adminMap.put("id", admin.getId());
+        adminMap.put("username", admin.getUsername());
+        adminMap.put("nickname", admin.getNickname());
+        adminMap.put("avatarUrl", admin.getAvatarUrl());
+        adminMap.put("status", admin.getStatus());
+        result.put("admin", adminMap);
         
         return result;
     }
