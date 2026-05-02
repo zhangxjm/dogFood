@@ -1,0 +1,51 @@
+# Expo Documentation: https://docs.expo.dev/guides/faq/#what-files-should-i-gitignore
+
+# node_modules
+node_modules/**/*
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# Debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Local
+*.local.pem
+*.local
+
+# macOS
+.DS_Store
+*.pem
+
+# Environment variables (may contain sensitive info)
+.env
+.env.local
+.env*.local
+
+# Coverage
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing
+__pycache__/

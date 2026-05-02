@@ -1,0 +1,73 @@
+# 依赖目录
+node_modules/
+.pnp/
+.pnp.js
+
+# 构建输出
+dist/
+build/
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# 环境变量文件（包含敏感信息，请勿提交）
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# 测试覆盖
+coverage/
+.nyc_output/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Expo 特定
+.expo/
+web-build/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Metro
+.metro-health-check*
+
+# React Native
+.expo-shared/
+assets/*.db
+
+# Docker
+.docker-data/
+
+# 本地配置
+local.properties
+*.local

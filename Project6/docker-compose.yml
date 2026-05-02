@@ -1,0 +1,123 @@
+version: '3.8'
+
+services:
+  # MongoDB 数据库
+  mongodb:
+    image: mongo:7.0
+    container_name: rnapp-mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ld123456
+      MONGO_INITDB_DATABASE: rnapp
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./docker/mongodb/init.js:/docker-entrypoint-initdb.d/init.js:ro
+    networks:
+      - rnapp-network
+
+  # MySQL 数据库（可选）
+  mysql:
+    image: mysql:8.0
+    container_name: rnapp-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ld123456
+      MYSQL_DATABASE: rnapp
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - rnapp-network
+    profiles:
+      - mysql
+
+  # PostgreSQL 数据库（可选）
+  postgres:
+    image: postgres:16
+    container_name: rnapp-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: rnapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - rnapp-network
+    profiles:
+      - postgres
+
+  # Node.js 后端服务
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: rnapp-server
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGODB_URI: mongodb://root:ld123456@mongodb:27017/rnapp?authSource=admin
+      JWT_SECRET: ${JWT_SECRET:-your-production-secret-key-change-this}
+      JWT_EXPIRE: 7d
+      CORS_ORIGIN: "*"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    networks:
+      - rnapp-network
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    command: npm run dev
+
+  # Redis 缓存（可选）
+  redis:
+    image: redis:7-alpine
+    container_name: rnapp-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - rnapp-network
+    profiles:
+      - redis
+
+  # Nginx 反向代理（可选，生产环境使用）
+  nginx:
+    image: nginx:alpine
+    container_name: rnapp-nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - server
+    networks:
+      - rnapp-network
+    profiles:
+      - nginx
+
+networks:
+  rnapp-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  mysql_data:
+  postgres_data:
+  redis_data:
