@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "手机数码",
+    "icon": "📱",
+    "description": "手机、平板、耳机等数码产品",
+    "order": 1
+  },
+  {
+    "id": 2,
+    "name": "电脑办公",
+    "icon": "💻",
+    "description": "笔记本、台式机、配件等",
+    "order": 2
+  },
+  {
+    "id": 3,
+    "name": "家用电器",
+    "icon": "🏠",
+    "description": "空调、冰箱、洗衣机等",
+    "order": 3
+  },
+  {
+    "id": 4,
+    "name": "服饰鞋包",
+    "icon": "👔",
+    "description": "男装、女装、鞋靴、箱包",
+    "order": 4
+  },
+  {
+    "id": 5,
+    "name": "美妆个护",
+    "icon": "💄",
+    "description": "化妆品、护肤品、洗护用品",
+    "order": 5
+  },
+  {
+    "id": 6,
+    "name": "食品生鲜",
+    "icon": "🍎",
+    "description": "水果、蔬菜、肉类、零食",
+    "order": 6
+  },
+  {
+    "id": 7,
+    "name": "图书文具",
+    "icon": "📚",
+    "description": "书籍、文具、办公用品",
+    "order": 7
+  },
+  {
+    "id": 8,
+    "name": "家居家装",
+    "icon": "🏡",
+    "description": "家具、家居、装修材料",
+    "order": 8
+  }
+]

@@ -1,0 +1,416 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 15 Pro Max",
+    "price": 9999,
+    "originalPrice": 10999,
+    "categoryId": 1,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iPhone%2015%20Pro%20Max%20smartphone%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iPhone%2015%20Pro%20Max%20smartphone%20product%20photo%20front&image_size=square_hd",
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iPhone%2015%20Pro%20Max%20smartphone%20product%20photo%20back&image_size=square_hd",
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=iPhone%2015%20Pro%20Max%20smartphone%20product%20photo%20side&image_size=square_hd"
+    ],
+    "description": "全新钛金属设计，A17 Pro芯片，专业级摄像系统。支持USB-C接口，ProMotion自适应刷新率，全天候显示。",
+    "stock": 100,
+    "sales": 2580,
+    "rating": 4.9,
+    "reviews": 1256,
+    "isHot": true,
+    "isNew": true,
+    "specs": {
+      "屏幕": "6.7英寸 Super Retina XDR",
+      "芯片": "A17 Pro",
+      "存储": "256GB / 512GB / 1TB",
+      "摄像头": "4800万主摄 + 1200万超广角 + 1200万长焦",
+      "电池": "4441mAh",
+      "颜色": "钛金属黑、钛金属白、钛金属蓝、钛金属自然色"
+    }
+  },
+  {
+    "id": 2,
+    "name": "AirPods Pro 2",
+    "price": 1899,
+    "originalPrice": 1999,
+    "categoryId": 1,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=AirPods%20Pro%202%20wireless%20earbuds%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=AirPods%20Pro%202%20wireless%20earbuds%20product%20photo%20open%20case&image_size=square_hd",
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=AirPods%20Pro%202%20wireless%20earbuds%20product%20photo%20close&image_size=square_hd"
+    ],
+    "description": "全新H2芯片，突破性的主动降噪。自适应通透模式，个性化空间音频。续航可达30小时。",
+    "stock": 200,
+    "sales": 5890,
+    "rating": 4.8,
+    "reviews": 3256,
+    "isHot": true,
+    "isNew": false,
+    "specs": {
+      "芯片": "H2",
+      "降噪": "主动降噪 + 自适应通透模式",
+      "续航": "单次6小时，充电盒30小时",
+      "充电": "USB-C / MagSafe / 无线充电",
+      "防水": "IPX4"
+    }
+  },
+  {
+    "id": 3,
+    "name": "MacBook Pro 14英寸",
+    "price": 14999,
+    "originalPrice": 15999,
+    "categoryId": 2,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=MacBook%20Pro%2014%20inch%20laptop%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=MacBook%20Pro%2014%20inch%20laptop%20product%20photo%20open&image_size=square_hd",
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=MacBook%20Pro%2014%20inch%20laptop%20product%20photo%20closed&image_size=square_hd"
+    ],
+    "description": "M3 Pro芯片，Liquid Retina XDR显示屏。ProMotion自适应刷新率，Mini-LED背光。长达17小时续航。",
+    "stock": 50,
+    "sales": 1256,
+    "rating": 4.9,
+    "reviews": 856,
+    "isHot": true,
+    "isNew": true,
+    "specs": {
+      "芯片": "M3 Pro",
+      "屏幕": "14.2英寸 Liquid Retina XDR",
+      "内存": "18GB 统一内存",
+      "存储": "512GB SSD",
+      "电池": "长达17小时",
+      "接口": "HDMI、SDXC、MagSafe 3、3个雷雳4"
+    }
+  },
+  {
+    "id": 4,
+    "name": "华为 MateBook X Pro",
+    "price": 11999,
+    "originalPrice": 12999,
+    "categoryId": 2,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Huawei%20MateBook%20X%20Pro%20laptop%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Huawei%20MateBook%20X%20Pro%20laptop%20product%20photo%20open&image_size=square_hd"
+    ],
+    "description": "酷睿Ultra处理器，3.1K OLED触控屏。92.5%屏占比，轻薄金属机身。超级终端多设备协同。",
+    "stock": 80,
+    "sales": 890,
+    "rating": 4.7,
+    "reviews": 567,
+    "isHot": false,
+    "isNew": true,
+    "specs": {
+      "处理器": "第14代酷睿 Ultra 7",
+      "屏幕": "14.2英寸 3.1K OLED 触控屏",
+      "内存": "16GB",
+      "存储": "1TB SSD",
+      "厚度": "12.9mm",
+      "重量": "1.26kg"
+    }
+  },
+  {
+    "id": 5,
+    "name": "戴森 V15 无线吸尘器",
+    "price": 4990,
+    "originalPrice": 5490,
+    "categoryId": 3,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Dyson%20V15%20wireless%20vacuum%20cleaner%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Dyson%20V15%20wireless%20vacuum%20cleaner%20product%20photo%20with%20accessories&image_size=square_hd"
+    ],
+    "description": "激光灰尘检测，智能分析并显示。强劲吸力，60分钟续航。HEPA过滤系统，锁住99.97%小至0.3微米的颗粒物。",
+    "stock": 120,
+    "sales": 2340,
+    "rating": 4.8,
+    "reviews": 1890,
+    "isHot": true,
+    "isNew": false,
+    "specs": {
+      "吸力": "230AW",
+      "续航": "60分钟",
+      "重量": "2.61kg",
+      "尘筒容量": "0.76L",
+      "过滤": "HEPA H13级",
+      "吸头": "6款吸头配件"
+    }
+  },
+  {
+    "id": 6,
+    "name": "海尔 对开门冰箱",
+    "price": 8999,
+    "originalPrice": 9999,
+    "categoryId": 3,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Haier%20side%20by%20side%20refrigerator%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Haier%20side%20by%20side%20refrigerator%20product%20photo%20open%20door&image_size=square_hd"
+    ],
+    "description": "601L超大容量，智能控温技术。变频压缩机，节能静音。钢化玻璃面板，时尚外观。",
+    "stock": 30,
+    "sales": 567,
+    "rating": 4.6,
+    "reviews": 345,
+    "isHot": false,
+    "isNew": true,
+    "specs": {
+      "总容量": "601L",
+      "冷藏室": "381L",
+      "冷冻室": "220L",
+      "能效等级": "一级",
+      "制冷方式": "风冷无霜",
+      "压缩机": "变频"
+    }
+  },
+  {
+    "id": 7,
+    "name": "优衣库 男士纯棉衬衫",
+    "price": 199,
+    "originalPrice": 249,
+    "categoryId": 4,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Uniqlo%20men%27s%20cotton%20shirt%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Uniqlo%20men%27s%20cotton%20shirt%20product%20photo%20worn&image_size=square_hd"
+    ],
+    "description": "100%新疆长绒棉，柔软舒适。经典版型，百搭款式。多色可选，商务休闲皆宜。",
+    "stock": 500,
+    "sales": 8900,
+    "rating": 4.5,
+    "reviews": 5678,
+    "isHot": true,
+    "isNew": false,
+    "specs": {
+      "材质": "100% 棉",
+      "版型": "常规版型",
+      "领型": "标准领",
+      "袖长": "长袖",
+      "颜色": "白色、浅蓝、深蓝、灰色",
+      "尺码": "S M L XL XXL"
+    }
+  },
+  {
+    "id": 8,
+    "name": "耐克 Air Max 运动鞋",
+    "price": 899,
+    "originalPrice": 999,
+    "categoryId": 4,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Nike%20Air%20Max%20sneakers%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Nike%20Air%20Max%20sneakers%20product%20photo%20side%20view&image_size=square_hd"
+    ],
+    "description": "经典气垫设计，缓震舒适。网眼鞋面，透气干爽。时尚外观，运动休闲两不误。",
+    "stock": 200,
+    "sales": 4560,
+    "rating": 4.7,
+    "reviews": 2345,
+    "isHot": true,
+    "isNew": true,
+    "specs": {
+      "鞋面": "网眼 + 合成革",
+      "中底": "Air Max 气垫",
+      "外底": "橡胶",
+      "闭合方式": "系带",
+      "颜色": "黑白、白红、全黑",
+      "尺码": "36-45"
+    }
+  },
+  {
+    "id": 9,
+    "name": "SK-II 神仙水精华液",
+    "price": 1590,
+    "originalPrice": 1790,
+    "categoryId": 5,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=SK-II%20Facial%20Treatment%20Essence%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=SK-II%20Facial%20Treatment%20Essence%20product%20photo%20with%20box&image_size=square_hd"
+    ],
+    "description": "蕴含90%以上PITERA™精华，调节肌肤水油平衡。改善肤质，提亮肤色，让肌肤晶莹剔透。",
+    "stock": 150,
+    "sales": 6780,
+    "rating": 4.9,
+    "reviews": 4567,
+    "isHot": true,
+    "isNew": false,
+    "specs": {
+      "容量": "230ml",
+      "功效": "保湿、修护、提亮",
+      "适用肤质": "所有肤质",
+      "核心成分": "PITERA™",
+      "使用方法": "早晚洁面后使用"
+    }
+  },
+  {
+    "id": 10,
+    "name": "兰蔻 小黑瓶肌底精华",
+    "price": 1080,
+    "originalPrice": 1280,
+    "categoryId": 5,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lancome%20Advanced%20Genifique%20serum%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lancome%20Advanced%20Genifique%20serum%20product%20photo%20closeup&image_size=square_hd"
+    ],
+    "description": "微生态护肤，修护肌肤屏障。10大益生元及益生菌精粹，焕活年轻肌底。滴管设计，精准用量。",
+    "stock": 180,
+    "sales": 5430,
+    "rating": 4.8,
+    "reviews": 3456,
+    "isHot": true,
+    "isNew": true,
+    "specs": {
+      "容量": "50ml",
+      "功效": "修护、维稳、焕亮",
+      "适用肤质": "所有肤质",
+      "核心成分": "10大益生元及益生菌精粹",
+      "质地": "轻盈蛋清质地"
+    }
+  },
+  {
+    "id": 11,
+    "name": "进口车厘子 2斤装",
+    "price": 128,
+    "originalPrice": 158,
+    "categoryId": 6,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fresh%20cherries%202kg%20package%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fresh%20cherries%20close%20up%20product%20photo&image_size=square_hd"
+    ],
+    "description": "智利进口JJ级车厘子，果大核小，果肉饱满。脆甜多汁，营养丰富。冷链配送，新鲜到家。",
+    "stock": 300,
+    "sales": 8900,
+    "rating": 4.6,
+    "reviews": 5678,
+    "isHot": true,
+    "isNew": false,
+    "specs": {
+      "产地": "智利",
+      "等级": "JJ级",
+      "重量": "1kg(2斤)",
+      "果径": "28-30mm",
+      "保质期": "冷藏7天",
+      "储存方式": "0-4℃冷藏"
+    }
+  },
+  {
+    "id": 12,
+    "name": "三只松鼠 坚果大礼包",
+    "price": 199,
+    "originalPrice": 249,
+    "categoryId": 6,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Three%20Squirrels%20nuts%20gift%20box%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Three%20Squirrels%20nuts%20assortment%20product%20photo&image_size=square_hd"
+    ],
+    "description": "精选9款进口坚果，每日坚果混合装。夏威夷果、碧根果、腰果、巴旦木等。送礼自用两相宜。",
+    "stock": 400,
+    "sales": 12500,
+    "rating": 4.7,
+    "reviews": 8900,
+    "isHot": true,
+    "isNew": true,
+    "specs": {
+      "净含量": "1440g",
+      "包含": "9款坚果",
+      "保质期": "180天",
+      "储存方式": "阴凉干燥处",
+      "包装": "精美礼盒装"
+    }
+  },
+  {
+    "id": 13,
+    "name": "三体 全集典藏版",
+    "price": 168,
+    "originalPrice": 198,
+    "categoryId": 7,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=The%20Three-Body%20Problem%20book%20set%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=The%20Three-Body%20Problem%20book%20collection%20product%20photo&image_size=square_hd"
+    ],
+    "description": "刘慈欣科幻巨著，雨果奖获奖作品。《三体》《黑暗森林》《死神永生》三部曲。硬科幻巅峰之作，展现宇宙级文明博弈。",
+    "stock": 250,
+    "sales": 6780,
+    "rating": 4.9,
+    "reviews": 4567,
+    "isHot": true,
+    "isNew": false,
+    "specs": {
+      "作者": "刘慈欣",
+      "册数": "3册",
+      "装帧": "平装",
+      "开本": "16开",
+      "页数": "约1000页",
+      "ISBN": "9787536692930"
+    }
+  },
+  {
+    "id": 14,
+    "name": "晨光 文具套装",
+    "price": 89,
+    "originalPrice": 119,
+    "categoryId": 7,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=M&G%20stationery%20set%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=M&G%20pens%20and%20stationery%20product%20photo&image_size=square_hd"
+    ],
+    "description": "学生开学必备文具套装，包含中性笔、铅笔、橡皮、尺子等。品质保证，书写流畅。",
+    "stock": 500,
+    "sales": 9800,
+    "rating": 4.5,
+    "reviews": 6789,
+    "isHot": true,
+    "isNew": true,
+    "specs": {
+      "包含": "中性笔10支、铅笔5支、橡皮2块、尺子1套、笔袋1个",
+      "适用人群": "学生、办公",
+      "保质期": "5年",
+      "包装": "精美礼盒"
+    }
+  },
+  {
+    "id": 15,
+    "name": "宜家 北欧简约沙发",
+    "price": 3999,
+    "originalPrice": 4599,
+    "categoryId": 8,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=IKEA%20Nordic%20minimalist%20sofa%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=IKEA%20Nordic%20sofa%20in%20living%20room%20product%20photo&image_size=square_hd"
+    ],
+    "description": "北欧简约设计，布艺可拆洗。高密度海绵填充，坐感舒适。实木框架，结实耐用。",
+    "stock": 20,
+    "sales": 456,
+    "rating": 4.7,
+    "reviews": 234,
+    "isHot": false,
+    "isNew": true,
+    "specs": {
+      "尺寸": "210×95×85cm",
+      "材质": "布艺 + 实木框架",
+      "填充物": "高密度海绵",
+      "风格": "北欧简约",
+      "颜色": "浅灰、深灰、米白",
+      "是否可拆洗": "是"
+    }
+  },
+  {
+    "id": 16,
+    "name": "小米 智能台灯 Pro",
+    "price": 299,
+    "originalPrice": 349,
+    "categoryId": 8,
+    "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Xiaomi%20smart%20desk%20lamp%20Pro%20product%20photo&image_size=square_hd",
+    "images": [
+      "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Xiaomi%20smart%20desk%20lamp%20Pro%20lit%20product%20photo&image_size=square_hd"
+    ],
+    "description": "智能调光调色，APP远程控制。无频闪护眼设计，Ra90高显色指数。铝合金灯臂，多角度调节。",
+    "stock": 300,
+    "sales": 5670,
+    "rating": 4.8,
+    "reviews": 3456,
+    "isHot": true,
+    "isNew": false,
+    "specs": {
+      "亮度": "500lm",
+      "色温": "2700K-6500K",
+      "显色指数": "Ra90",
+      "控制方式": "APP + 触控",
+      "功率": "10W",
+      "连接方式": "WiFi + 蓝牙"
+    }
+  }
+]
