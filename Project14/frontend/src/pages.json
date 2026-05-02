@@ -1,0 +1,200 @@
+{
+    "pages": [
+        {
+            "path": "pages/login/login",
+            "style": {
+                "navigationBarTitleText": "登录",
+                "navigationStyle": "custom"
+            }
+        },
+        {
+            "path": "pages/register/register",
+            "style": {
+                "navigationBarTitleText": "注册"
+            }
+        },
+        {
+            "path": "pages/index/index",
+            "style": {
+                "navigationBarTitleText": "首页",
+                "navigationStyle": "custom"
+            }
+        },
+        {
+            "path": "pages/bills/bills",
+            "style": {
+                "navigationBarTitleText": "我的账单"
+            }
+        },
+        {
+            "path": "pages/bill-detail/bill-detail",
+            "style": {
+                "navigationBarTitleText": "账单详情"
+            }
+        },
+        {
+            "path": "pages/repairs/repairs",
+            "style": {
+                "navigationBarTitleText": "我的报修"
+            }
+        },
+        {
+            "path": "pages/repair-detail/repair-detail",
+            "style": {
+                "navigationBarTitleText": "报修详情"
+            }
+        },
+        {
+            "path": "pages/repair-apply/repair-apply",
+            "style": {
+                "navigationBarTitleText": "申请报修"
+            }
+        },
+        {
+            "path": "pages/notices/notices",
+            "style": {
+                "navigationBarTitleText": "小区公告"
+            }
+        },
+        {
+            "path": "pages/notice-detail/notice-detail",
+            "style": {
+                "navigationBarTitleText": "公告详情"
+            }
+        },
+        {
+            "path": "pages/suggestions/suggestions",
+            "style": {
+                "navigationBarTitleText": "投诉建议"
+            }
+        },
+        {
+            "path": "pages/suggestion-detail/suggestion-detail",
+            "style": {
+                "navigationBarTitleText": "建议详情"
+            }
+        },
+        {
+            "path": "pages/suggestion-apply/suggestion-apply",
+            "style": {
+                "navigationBarTitleText": "提交建议"
+            }
+        },
+        {
+            "path": "pages/visitors/visitors",
+            "style": {
+                "navigationBarTitleText": "访客登记"
+            }
+        },
+        {
+            "path": "pages/visitor-register/visitor-register",
+            "style": {
+                "navigationBarTitleText": "登记访客"
+            }
+        },
+        {
+            "path": "pages/profile/profile",
+            "style": {
+                "navigationBarTitleText": "个人中心"
+            }
+        },
+        {
+            "path": "pages/profile-edit/profile-edit",
+            "style": {
+                "navigationBarTitleText": "编辑资料"
+            }
+        },
+        {
+            "path": "pages/admin/index/index",
+            "style": {
+                "navigationBarTitleText": "管理后台",
+                "navigationStyle": "custom"
+            }
+        },
+        {
+            "path": "pages/admin/bills/bills",
+            "style": {
+                "navigationBarTitleText": "缴费管理"
+            }
+        },
+        {
+            "path": "pages/admin/repairs/repairs",
+            "style": {
+                "navigationBarTitleText": "工单管理"
+            }
+        },
+        {
+            "path": "pages/admin/repair-edit/repair-edit",
+            "style": {
+                "navigationBarTitleText": "处理工单"
+            }
+        },
+        {
+            "path": "pages/admin/notices/notices",
+            "style": {
+                "navigationBarTitleText": "公告管理"
+            }
+        },
+        {
+            "path": "pages/admin/notice-edit/notice-edit",
+            "style": {
+                "navigationBarTitleText": "发布公告"
+            }
+        },
+        {
+            "path": "pages/admin/suggestions/suggestions",
+            "style": {
+                "navigationBarTitleText": "建议处理"
+            }
+        },
+        {
+            "path": "pages/admin/suggestion-reply/suggestion-reply",
+            "style": {
+                "navigationBarTitleText": "回复建议"
+            }
+        },
+        {
+            "path": "pages/admin/users/users",
+            "style": {
+                "navigationBarTitleText": "业主管理"
+            }
+        },
+        {
+            "path": "pages/admin/visitors/visitors",
+            "style": {
+                "navigationBarTitleText": "访客记录"
+            }
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "小区物业",
+        "navigationBarBackgroundColor": "#007AFF",
+        "backgroundColor": "#F5F5F5",
+        "backgroundTextStyle": "dark"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#007AFF",
+        "borderStyle": "black",
+        "backgroundColor": "#FFFFFF",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/bills/bills",
+                "text": "账单"
+            },
+            {
+                "pagePath": "pages/repairs/repairs",
+                "text": "报修"
+            },
+            {
+                "pagePath": "pages/profile/profile",
+                "text": "我的"
+            }
+        ]
+    }
+}
