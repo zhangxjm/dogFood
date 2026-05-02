@@ -1,0 +1,128 @@
+.restaurant-icon {
+    font-size: 60px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading.show {
+    display: flex;
+}
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.btn-primary {
+    background-color: #ee5a24;
+    border-color: #ee5a24;
+}
+
+.btn-primary:hover {
+    background-color: #d44d1c;
+    border-color: #d44d1c;
+}
+
+.btn-outline-primary {
+    color: #ee5a24;
+    border-color: #ee5a24;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ee5a24;
+    border-color: #ee5a24;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #ee5a24;
+    box-shadow: 0 0 0 0.2rem rgba(238, 90, 36, 0.25);
+}
+
+.page-item.active .page-link {
+    background-color: #ee5a24;
+    border-color: #ee5a24;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding-left: 40px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    padding: 18px 25px;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.card-body {
+    padding: 25px;
+}
