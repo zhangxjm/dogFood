@@ -1,0 +1,67 @@
+<view class="container">
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500">
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image class="banner-image" src="{{item.image}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">商品分类</text>
+    </view>
+    <view class="category-grid">
+      <view class="category-item" wx:for="{{categories}}" wx:key="id" bindtap="goToCategory" data-id="{{item.id}}">
+        <image class="category-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热销推荐</text>
+      <text class="section-more" bindtap="goToCategory">查看更多 ></text>
+    </view>
+    <view class="product-grid">
+      <view class="product-card" wx:for="{{hotProducts}}" wx:key="id" bindtap="goToProduct" data-id="{{item.id}}">
+        <image class="product-image" src="{{item.mainImage}}" mode="aspectFill"></image>
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <view class="product-price-row">
+            <text class="product-price">¥{{item.price}}</text>
+            <text class="product-original-price" wx:if="{{item.originalPrice > item.price}}">¥{{item.originalPrice}}</text>
+          </view>
+          <text class="product-sales">已售{{item.sales}}件</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">全部商品</text>
+    </view>
+    <view class="product-list">
+      <view class="product-item" wx:for="{{products}}" wx:key="id" bindtap="goToProduct" data-id="{{item.id}}">
+        <image class="product-thumb" src="{{item.mainImage}}" mode="aspectFill"></image>
+        <view class="product-detail">
+          <text class="product-title">{{item.name}}</text>
+          <text class="product-desc">{{item.description}}</text>
+          <view class="product-bottom">
+            <view class="price-info">
+              <text class="current-price">¥{{item.price}}</text>
+              <text class="old-price" wx:if="{{item.originalPrice > item.price}}">¥{{item.originalPrice}}</text>
+            </view>
+            <text class="sales-count">已售{{item.sales}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="loading" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+    <view class="no-more" wx:if="{{!hasMore && products.length > 0}}">
+      <text>没有更多了</text>
+    </view>
+  </view>
+</view>
