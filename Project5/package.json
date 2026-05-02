@@ -1,0 +1,35 @@
+{
+  "name": "vue3-nestjs-admin",
+  "version": "1.0.0",
+  "description": "Vue3 + NestJS + MySQL 全栈企业级后台管理系统",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "install:all": "npm install",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "start:db": "docker-compose up -d mysql",
+    "stop:db": "docker-compose down mysql",
+    "logs:db": "docker-compose logs -f mysql"
+  },
+  "keywords": [
+    "vue3",
+    "nestjs",
+    "mysql",
+    "typescript",
+    "admin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
