@@ -1,0 +1,54 @@
+/**
+ * 登录页面样式
+ */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
+.login-card .ant-card-head {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.login-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+.login-card .ant-input-affix-wrapper-lg,
+.login-card .ant-input-lg {
+  border-radius: 8px;
+}
+
+.login-card .ant-btn-lg {
+  height: 48px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 响应式 */
+@media (max-width: 576px) {
+  .login-container {
+    padding: 16px;
+  }
+  
+  .login-card .ant-card-body {
+    padding: 16px;
+  }
+}

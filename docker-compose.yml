@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # MongoDB 数据库
+  mongodb:
+    image: mongo:6.0
+    container_name: fullstack-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: fullstack-app
+    networks:
+      - fullstack-network
+
+  # 后端服务
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fullstack-backend
+    restart: always
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongodb
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - MONGODB_URI=mongodb://mongodb:27017/fullstack-app
+      - JWT_SECRET=your-production-jwt-secret-key-change-this
+      - JWT_EXPIRES_IN=7d
+      - BCRYPT_SALT_ROUNDS=10
+      - CORS_ORIGIN=http://localhost:3000
+    networks:
+      - fullstack-network
+
+  # 前端服务
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fullstack-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - fullstack-network
+
+# 网络
+networks:
+  fullstack-network:
+    driver: bridge
+
+# 数据卷
+volumes:
+  mongodb_data:
+    driver: local

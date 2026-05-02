@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+}
+
+/* 登录页面容器 */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 登录卡片 */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
+.login-card .ant-card-head {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.login-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+/* 布局样式 */
+.main-layout {
+  min-height: 100vh;
+}
+
+.main-layout .ant-layout-header {
+  padding: 0 24px;
+  height: 64px;
+  line-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #001529;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.main-layout .ant-layout-sider {
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.main-layout .ant-layout-content {
+  margin: 24px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  min-height: calc(100vh - 112px);
+}
+
+/* 页面标题 */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+/* 搜索区域 */
+.search-section {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* 表格操作列 */
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* 状态标签 */
+.status-tag {
+  min-width: 60px;
+  text-align: center;
+}
+
+/* 角色标签 */
+.role-tag-admin {
+  background: #f6ffed;
+  border-color: #b7eb8f;
+  color: #52c41a;
+}
+
+.role-tag-user {
+  background: #e6f7ff;
+  border-color: #91d5ff;
+  color: #1890ff;
+}
+
+/* 用户头像 */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-avatar {
+  background: #1890ff;
+}
+
+/* 加载动画 */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+/* 空状态 */
+.empty-container {
+  padding: 48px 0;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .main-layout .ant-layout-content {
+    margin: 16px;
+    padding: 16px;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

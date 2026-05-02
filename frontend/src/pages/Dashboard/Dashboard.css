@@ -1,0 +1,50 @@
+/**
+ * 仪表板页面样式
+ */
+
+.dashboard-container {
+  width: 100%;
+}
+
+/* 页面标题 */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+/* 信息卡片 */
+.info-card {
+  margin-bottom: 24px;
+}
+
+/* 统计卡片悬停效果 */
+.dashboard-container .ant-card-hoverable:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 描述列表 */
+.dashboard-container .ant-descriptions-item-label {
+  font-weight: 500;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .dashboard-container .ant-row {
+    margin-bottom: 16px;
+  }
+}

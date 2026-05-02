@@ -1,0 +1,72 @@
+/**
+ * 用户管理页面样式
+ */
+
+.users-container {
+  width: 100%;
+}
+
+/* 页面标题 */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+/* 搜索区域 */
+.search-section {
+  margin-bottom: 16px;
+}
+
+.search-section .ant-card-body {
+  padding: 16px 24px;
+}
+
+/* 表格样式 */
+.users-container .ant-table {
+  border-radius: 8px;
+}
+
+.users-container .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+}
+
+/* 操作按钮 */
+.users-container .ant-btn-link {
+  padding: 4px 8px;
+}
+
+/* 标签样式 */
+.users-container .ant-tag {
+  margin: 0;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .page-header .ant-btn {
+    width: 100%;
+  }
+  
+  .search-section .ant-space {
+    width: 100%;
+  }
+  
+  .search-section .ant-space-item {
+    width: 100%;
+  }
+}
