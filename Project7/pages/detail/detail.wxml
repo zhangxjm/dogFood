@@ -1,0 +1,55 @@
+<view class="page-container">
+  <view wx:if="{{isLoading}}" class="loading-container">
+    <loading hidden="{{false}}" size="24"/>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <view wx:elif="{{!newsDetail}}" class="empty-container">
+    <text class="empty-text">资讯不存在或已删除</text>
+  </view>
+
+  <view wx:else class="detail-content">
+    <view class="detail-header">
+      <view class="detail-title">{{newsDetail.title}}</view>
+      <view class="detail-meta">
+        <view class="meta-left">
+          <text class="meta-item">{{newsDetail.author || '佚名'}}</text>
+          <text class="meta-item">{{util.formatDate(newsDetail.createTime)}}</text>
+          <text class="meta-item">{{util.formatViewCount(newsDetail.views || 0)}}阅读</text>
+        </view>
+        <view class="meta-right">
+          <view class="category-tag">{{newsDetail.category || '综合'}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="detail-cover" wx:if="{{newsDetail.cover}}">
+      <image class="cover-image" src="{{newsDetail.cover}}" mode="widthFix"/>
+    </view>
+
+    <view class="detail-body">
+      <rich-text nodes="{{newsDetail.content}}"></rich-text>
+    </view>
+
+    <view class="detail-empty">
+      <text wx:if="{{!newsDetail.content}}">暂无内容</text>
+    </view>
+  </view>
+
+  <view class="action-bar safe-area-bottom">
+    <view class="action-item" bindtap="onCollectionTap">
+      <view class="action-icon">
+        <icon type="{{isCollected ? 'warn' : 'success'}}" size="22" color="{{isCollected ? '#E64340' : '#999'}}"/>
+      </view>
+      <text class="action-text {{isCollected ? 'active' : ''}}">{{isCollected ? '已收藏' : '收藏'}}</text>
+    </view>
+    <view class="action-item share-btn">
+      <button open-type="share" class="share-btn-inner">
+        <view class="action-icon">
+          <icon type="success" size="22" color="#1AAD19"/>
+        </view>
+        <text class="action-text" style="color: #1AAD19;">分享</text>
+      </button>
+    </view>
+  </view>
+</view>

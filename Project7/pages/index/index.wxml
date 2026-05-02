@@ -1,0 +1,75 @@
+<view class="page-container">
+  <view class="search-bar">
+    <view class="search-box">
+      <icon type="search" size="16" color="#999"/>
+      <input 
+        class="search-input" 
+        placeholder="搜索资讯..." 
+        placeholder-class="search-placeholder"
+        bindconfirm="onSearch"
+      />
+    </view>
+  </view>
+
+  <view class="category-tab">
+    <scroll-view scroll-x class="category-scroll">
+      <view class="category-list">
+        <view 
+          wx:for="{{categories}}" 
+          wx:key="value" 
+          class="category-item {{currentCategoryIndex === index ? 'active' : ''}}"
+          data-index="{{index}}"
+          bindtap="onCategoryTap"
+        >
+          <text class="category-text">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="news-list">
+    <view 
+      wx:if="{{newsList.length > 0}}" 
+      wx:for="{{newsList}}" 
+      wx:key="_id" 
+      class="news-item"
+      data-id="{{item._id}}"
+      bindtap="onNewsTap"
+    >
+      <view class="news-content">
+        <view class="news-title text-ellipsis-2">{{item.title}}</view>
+        <view class="news-desc text-ellipsis">{{item.summary || '暂无简介'}}</view>
+        <view class="news-meta">
+          <view class="meta-left">
+            <text class="meta-item">{{item.category || '综合'}}</text>
+            <text class="meta-item">{{item.author || '佚名'}}</text>
+            <text class="meta-item">{{util.getTimeDiff(item.createTime)}}</text>
+          </view>
+          <view class="meta-right">
+            <text class="meta-view">{{util.formatViewCount(item.views || 0)}}阅读</text>
+          </view>
+        </view>
+      </view>
+      <view class="news-cover" wx:if="{{item.cover}}">
+        <image class="cover-image" src="{{item.cover}}" mode="aspectFill" lazy-load/>
+      </view>
+    </view>
+
+    <view wx:elif="{{!isLoading}}" class="empty-container">
+      <text class="empty-text">暂无资讯内容</text>
+    </view>
+
+    <view wx:if="{{isLoading && page === 1}}" class="loading-container">
+      <loading hidden="{{false}}" size="20"/>
+      <text class="loading-text">加载中...</text>
+    </view>
+
+    <view wx:if="{{isLoading && page > 1}}" class="loading-more">
+      <text>加载更多...</text>
+    </view>
+
+    <view wx:if="{{!hasMore && newsList.length > 0}}" class="no-more">
+      <text>没有更多了</text>
+    </view>
+  </view>
+</view>

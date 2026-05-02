@@ -1,0 +1,131 @@
+<view class="page-container">
+  <view class="user-header">
+    <view wx:if="{{!isLogged}}" class="header-unlogin">
+      <view class="avatar-placeholder">
+        <icon type="info" size="60" color="#fff"/>
+      </view>
+      <view class="login-btn-wrapper">
+        <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">
+          点击登录
+        </button>
+      </view>
+    </view>
+
+    <view wx:else class="header-logged">
+      <view class="user-info">
+        <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"/>
+        <view class="user-detail">
+          <view class="user-nickname">{{userInfo.nickName}}</view>
+          <view class="user-location">{{userInfo.province}} {{userInfo.city}}</view>
+        </view>
+      </view>
+      <view class="logout-btn" bindtap="onLogout">
+        <text>退出</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="content-tabs">
+    <view class="tab-item {{currentTab === 'profile' ? 'active' : ''}}" data-tab="profile" bindtap="onTabChange">
+      <text>个人资料</text>
+    </view>
+    <view class="tab-item {{currentTab === 'collections' ? 'active' : ''}}" data-tab="collections" bindtap="onTabChange">
+      <text>我的收藏</text>
+    </view>
+  </view>
+
+  <view wx:if="{{currentTab === 'profile'}}" class="profile-content">
+    <view class="menu-list">
+      <view class="menu-item" data-item="collections" bindtap="onItemTap">
+        <view class="menu-left">
+          <icon type="success" size="20" color="#1AAD19"/>
+          <text class="menu-text">我的收藏</text>
+        </view>
+        <view class="menu-right">
+          <text class="menu-count" wx:if="{{isLogged}}">{{collectionTotal}}</text>
+          <icon type="info" size="16" color="#ccc"/>
+        </view>
+      </view>
+
+      <view class="menu-item" data-item="settings" bindtap="onItemTap">
+        <view class="menu-left">
+          <icon type="info" size="20" color="#666"/>
+          <text class="menu-text">设置</text>
+        </view>
+        <view class="menu-right">
+          <icon type="info" size="16" color="#ccc"/>
+        </view>
+      </view>
+
+      <view class="menu-item" data-item="feedback" bindtap="onItemTap">
+        <view class="menu-left">
+          <icon type="warn" size="20" color="#FF976A"/>
+          <text class="menu-text">意见反馈</text>
+        </view>
+        <view class="menu-right">
+          <icon type="info" size="16" color="#ccc"/>
+        </view>
+      </view>
+
+      <view class="menu-item" data-item="about" bindtap="onItemTap">
+        <view class="menu-left">
+          <icon type="success" size="20" color="#1AAD19"/>
+          <text class="menu-text">关于我们</text>
+        </view>
+        <view class="menu-right">
+          <icon type="info" size="16" color="#ccc"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:elif="{{currentTab === 'collections'}}" class="collections-content">
+    <view wx:if="{{!isLogged}}" class="empty-container">
+      <text class="empty-text">请先登录后查看收藏</text>
+      <view class="login-hint">
+        <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">
+          立即登录
+        </button>
+      </view>
+    </view>
+
+    <view wx:elif="{{collections.length > 0}}" class="collections-list">
+      <view 
+        wx:for="{{collections}}" 
+        wx:key="_id" 
+        class="collection-item"
+        data-newsid="{{item.newsId}}"
+        bindtap="onCollectionItemTap"
+      >
+        <view class="collection-cover" wx:if="{{item.newsCover}}">
+          <image class="cover-image" src="{{item.newsCover}}" mode="aspectFill"/>
+        </view>
+        <view class="collection-info">
+          <view class="collection-title text-ellipsis-2">{{item.newsTitle}}</view>
+          <view class="collection-meta">
+            <text class="meta-category">{{item.newsCategory || '综合'}}</text>
+            <text class="meta-time">{{util.getTimeDiff(item.createTime)}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{collectionIsLoading && collectionPage > 1}}" class="loading-more">
+        <text>加载更多...</text>
+      </view>
+
+      <view wx:if="{{!collectionHasMore && collections.length > 0}}" class="no-more">
+        <text>没有更多收藏了</text>
+      </view>
+    </view>
+
+    <view wx:elif="{{!collectionIsLoading}}" class="empty-container">
+      <text class="empty-text">暂无收藏内容</text>
+      <text class="empty-desc">快去浏览资讯，收藏喜欢的内容吧</text>
+    </view>
+
+    <view wx:if="{{collectionIsLoading && collectionPage === 1}}" class="loading-container">
+      <loading hidden="{{false}}" size="20"/>
+      <text class="loading-text">加载中...</text>
+    </view>
+  </view>
+</view>
