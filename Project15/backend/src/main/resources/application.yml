@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/job_recruitment?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: ld123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      pool-name: JobRecruitmentHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+beetlsql:
+  sql-path: /sql
+  daosuffix: Mapper
+  base-package: com.jobrecruitment.mapper
+  db-style: mysql
+
+my:
+  config:
+    jwt-secret: JobRecruitmentSecretKey2024VeryLongSecretKeyForJWTToken
+    jwt-expiration: 604800000
+    upload-path: /uploads
