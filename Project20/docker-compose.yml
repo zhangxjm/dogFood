@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: library_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ld123456
+      MYSQL_DATABASE: library
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - library_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: library_backend
+    restart: always
+    environment:
+      - DJANGO_SETTINGS_MODULE=library.settings
+      - DEBUG=True
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=library
+      - DB_USER=root
+      - DB_PASSWORD=ld123456
+      - SECRET_KEY=django-insecure-library-secret-key-for-dev-2024
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - library_network
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py init_data &&
+             python manage.py runserver 0.0.0.0:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: library_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - library_network
+
+volumes:
+  mysql_data:
+
+networks:
+  library_network:
+    driver: bridge
