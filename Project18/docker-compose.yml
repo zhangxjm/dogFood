@@ -1,0 +1,115 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: seckill-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ld123456
+      MYSQL_DATABASE: seckill_db
+      TZ: Asia/Shanghai
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/sql:/docker-entrypoint-initdb.d
+    command: 
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --max_connections=1000
+      - --innodb_buffer_pool_size=512M
+    networks:
+      - seckill-network
+
+  redis:
+    image: redis:7.2
+    container_name: seckill-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    networks:
+      - seckill-network
+
+  nacos:
+    image: nacos/nacos-server:v2.2.3
+    container_name: seckill-nacos
+    restart: always
+    environment:
+      - MODE=standalone
+      - PREFER_HOST_MODE=hostname
+      - JVM_XMS=512m
+      - JVM_XMX=512m
+      - JVM_XMN=256m
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9849:9849"
+    volumes:
+      - nacos_data:/home/nacos/data
+      - nacos_logs:/home/nacos/logs
+    networks:
+      - seckill-network
+
+  rocketmq-namesrv:
+    image: apache/rocketmq:4.9.5
+    container_name: seckill-rocketmq-namesrv
+    restart: always
+    ports:
+      - "9876:9876"
+    volumes:
+      - rocketmq_namesrv_data:/root/namesrv/logs
+    environment:
+      - JAVA_OPT_EXT=-server -Xms256m -Xmx256m -Xmn128m
+    command: sh mqnamesrv
+    networks:
+      - seckill-network
+
+  rocketmq-broker:
+    image: apache/rocketmq:4.9.5
+    container_name: seckill-rocketmq-broker
+    restart: always
+    ports:
+      - "10909:10909"
+      - "10911:10911"
+    volumes:
+      - rocketmq_broker_data:/root/broker/logs
+      - rocketmq_broker_store:/root/store
+    environment:
+      - NAMESRV_ADDR=rocketmq-namesrv:9876
+      - JAVA_OPT_EXT=-server -Xms512m -Xmx512m -Xmn256m
+    command: sh mqbroker -c /home/rocketmq/rocketmq-4.9.5/conf/broker.conf
+    depends_on:
+      - rocketmq-namesrv
+    networks:
+      - seckill-network
+
+  rocketmq-console:
+    image: styletang/rocketmq-console-ng:latest
+    container_name: seckill-rocketmq-console
+    restart: always
+    ports:
+      - "8081:8080"
+    environment:
+      - JAVA_OPTS=-Drocketmq.namesrv.addr=rocketmq-namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false
+    depends_on:
+      - rocketmq-namesrv
+      - rocketmq-broker
+    networks:
+      - seckill-network
+
+volumes:
+  mysql_data:
+  redis_data:
+  nacos_data:
+  nacos_logs:
+  rocketmq_namesrv_data:
+  rocketmq_broker_data:
+  rocketmq_broker_store:
+
+networks:
+  seckill-network:
+    driver: bridge
