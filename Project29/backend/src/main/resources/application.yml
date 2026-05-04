@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/attendance_system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: ld123456
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.attendance.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# 项目自定义配置
+attendance:
+  jwt:
+    secret: attendance-system-jwt-secret-key-2024
+    expiration: 86400000  # 24小时过期
+  # 考勤时间配置
+  work-time:
+    morning-start: 09:00:00  # 上班时间
+    morning-end: 12:00:00    # 上午下班
+    afternoon-start: 13:30:00  # 下午上班
+    afternoon-end: 18:00:00    # 下午下班
+    late-minutes: 30          # 迟到判定阈值（分钟）
+    early-minutes: 30         # 早退判定阈值（分钟）
