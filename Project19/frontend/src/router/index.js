@@ -102,6 +102,24 @@ const routes = [
         name: 'AdminCategory',
         component: () => import('@/views/admin/CategoryManage.vue'),
         meta: { title: '分类管理', requiresAuth: true, requiresAdmin: true }
+      },
+      {
+        path: 'notification',
+        name: 'NotificationList',
+        component: () => import('@/views/notification/NotificationList.vue'),
+        meta: { title: '消息中心', requiresAuth: true }
+      },
+      {
+        path: 'club/:clubId/announcements',
+        name: 'AnnouncementManage',
+        component: () => import('@/views/announcement/AnnouncementManage.vue'),
+        meta: { title: '公告管理', requiresAuth: true }
+      },
+      {
+        path: 'club/:clubId/announcement/:id',
+        name: 'AnnouncementDetail',
+        component: () => import('@/views/announcement/AnnouncementDetail.vue'),
+        meta: { title: '公告详情', requiresAuth: true }
       }
     ]
   }

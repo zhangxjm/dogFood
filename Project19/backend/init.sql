@@ -128,6 +128,51 @@ CREATE TABLE `activity_registration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='活动报名表';
 
 -- =============================================
+-- 7. 社团公告表
+-- =============================================
+DROP TABLE IF EXISTS `club_announcement`;
+CREATE TABLE `club_announcement` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '公告ID',
+    `club_id` BIGINT NOT NULL COMMENT '社团ID',
+    `title` VARCHAR(200) NOT NULL COMMENT '公告标题',
+    `content` TEXT COMMENT '公告内容',
+    `type` TINYINT DEFAULT 1 COMMENT '类型：1社团通知 2活动公告',
+    `is_top` TINYINT DEFAULT 0 COMMENT '是否置顶：0否 1是',
+    `publisher_id` BIGINT NOT NULL COMMENT '发布者用户ID',
+    `read_count` INT DEFAULT 0 COMMENT '阅读次数',
+    `status` TINYINT DEFAULT 1 COMMENT '状态：0已删除 1正常',
+    `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    KEY `idx_club` (`club_id`),
+    KEY `idx_publisher` (`publisher_id`),
+    KEY `idx_create_time` (`create_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='社团公告表';
+
+-- =============================================
+-- 8. 站内消息通知表
+-- =============================================
+DROP TABLE IF EXISTS `notification`;
+CREATE TABLE `notification` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '通知ID',
+    `user_id` BIGINT NOT NULL COMMENT '接收用户ID',
+    `type` TINYINT DEFAULT 1 COMMENT '通知类型：1系统通知 2社团通知 3活动通知 4审核通知',
+    `title` VARCHAR(200) NOT NULL COMMENT '通知标题',
+    `content` TEXT COMMENT '通知内容',
+    `related_type` VARCHAR(50) DEFAULT NULL COMMENT '关联类型：club/activity/club_member',
+    `related_id` BIGINT DEFAULT NULL COMMENT '关联ID',
+    `is_read` TINYINT DEFAULT 0 COMMENT '是否已读：0否 1是',
+    `sender_id` BIGINT DEFAULT NULL COMMENT '发送者用户ID（可为空，系统通知）',
+    `club_id` BIGINT DEFAULT NULL COMMENT '社团ID（可选）',
+    `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `read_time` DATETIME DEFAULT NULL COMMENT '阅读时间',
+    PRIMARY KEY (`id`),
+    KEY `idx_user` (`user_id`),
+    KEY `idx_is_read` (`is_read`),
+    KEY `idx_create_time` (`create_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='站内消息通知表';
+
+-- =============================================
 -- 初始化数据
 -- =============================================
 

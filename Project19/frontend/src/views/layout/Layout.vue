@@ -54,7 +54,12 @@
             </el-breadcrumb-item>
           </el-breadcrumb>
         </div>
-        <div class="header-user">
+        <div class="header-right">
+          <el-badge :value="unreadCount" :max="99" class="notification-badge">
+            <el-button type="primary" link @click="goToNotifications" class="notification-btn">
+              <el-icon :size="20"><Bell /></el-icon>
+            </el-button>
+          </el-badge>
           <el-dropdown @command="handleCommand">
             <span class="user-info">
               <el-avatar :size="32" class="avatar">
@@ -65,7 +70,14 @@
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="profile">个人信息</el-dropdown-item>
+                <el-dropdown-item command="notifications">
+                  <el-icon><Bell /></el-icon>
+                  消息中心
+                  <el-tag v-if="unreadCount > 0" type="danger" size="small" effect="dark" style="margin-left: 8px;">
+                    {{ unreadCount }}
+                  </el-tag>
+                </el-dropdown-item>
+                <el-dropdown-item divided command="profile">个人信息</el-dropdown-item>
                 <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </template>
@@ -84,16 +96,31 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessageBox } from 'element-plus'
 import { useUserStore } from '@/stores/user'
+import { getUnreadCount } from '@/api/notification'
 
 const route = useRoute()
 const router = useRouter()
 const userStore = useUserStore()
 
+const unreadCount = ref(0)
 const activeMenu = computed(() => route.path)
+
+const fetchUnreadCount = async () => {
+  try {
+    const res = await getUnreadCount()
+    unreadCount.value = res.data?.count || 0
+  } catch (error) {
+    console.error('获取未读消息数失败:', error)
+  }
+}
+
+const goToNotifications = () => {
+  router.push('/notification')
+}
 
 const handleCommand = (command) => {
   if (command === 'logout') {
@@ -107,8 +134,16 @@ const handleCommand = (command) => {
     }).catch(() => {})
   } else if (command === 'profile') {
     ElMessageBox.alert('个人信息功能开发中...', '提示')
+  } else if (command === 'notifications') {
+    router.push('/notification')
   }
 }
+
+onMounted(() => {
+  if (userStore.isLoggedIn) {
+    fetchUnreadCount()
+  }
+})
 </script>
 
 <style scoped lang="scss">
@@ -152,7 +187,18 @@ const handleCommand = (command) => {
     font-size: 16px;
   }
 
-  .header-user {
+  .header-right {
+    display: flex;
+    align-items: center;
+
+    .notification-badge {
+      margin-right: 20px;
+
+      .notification-btn {
+        padding: 8px;
+      }
+    }
+
     .user-info {
       display: flex;
       align-items: center;
